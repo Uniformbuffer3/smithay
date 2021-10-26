@@ -479,3 +479,8 @@ fn buffer_basic_checks(
     }
     true
 }
+
+/// Get the underlying [Dmabuf][Dmabuf] from a [wl_buffer::WlBuffer][WlBuffer] if present.
+pub fn get_dmabuf(buffer: &wl_buffer::WlBuffer) -> Option<&Dmabuf> {
+    buffer.as_ref().user_data().get::<Dmabuf>()
+}
